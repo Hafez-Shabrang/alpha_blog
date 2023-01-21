@@ -2,7 +2,7 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 
-// Adding our path
 import "jquery"
 import "jquery_ujs"
+import "popper"
 import "bootstrap"
