@@ -5,8 +5,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem "jquery-rails"
 gem "bootstrap"
 gem "sassc-rails"
-gem 'popper_js'
-
+gem "popper_js"
+gem "kaminari"
 
 ruby "3.1.2"
 
