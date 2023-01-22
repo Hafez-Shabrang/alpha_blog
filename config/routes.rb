@@ -18,4 +18,6 @@ Rails.application.routes.draw do
 
   get "logout", to: "sessions#destroy"
 
+  resources :categories, only: [:index, :show, :new, :create]
+
 end
