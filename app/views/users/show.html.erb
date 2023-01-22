@@ -1,0 +1,49 @@
+<%= render "notifications/success" %>
+
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <h1 class="text-center my-4"><%= @user.username %></h1>
+    <div class="card text-center">
+      <div class="card-header">
+        <%= link_to @user.username, user_path(@user) %>
+      </div>
+      <div class="card-body">
+        <%= image_tag @user.gravatar_url %>
+        <p class="my-2"><span class="badge text-bg-<%= @user.is_admin? ? "success" : "danger" %>">Admin</span></p>
+        <p class="card-text"><%= @user.email %></p>
+        <p><%= pluralize(@articles.count, "article") %></p>
+        <%= link_to "Edit", edit_user_path(@user), class: "btn btn-primary" %>
+        <%= link_to "Delete", user_path(@user), data: {turbo_method: :delete}, class: "btn btn-danger" %>
+      </div>
+      <div class="card-footer text-muted">
+        created at <%= @user.created_at.year %>-<%= @user.created_at.month %>-<%= @user.created_at.day %> and updated at <%= @user.updated_at.year %>-<%= @user.updated_at.month %>-<%= @user.updated_at.day %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-8 my-4">
+    <h1 class="text-center my-4">List of articles for <%= @user.username %></h1>
+    <% @articles.each do |article| %>
+      <div class="card text-center my-3">
+        <div class="card-header">
+          <%= article.user.username %>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to article.title, article_path(article) %></h5>
+          <p class="card-text"><%= truncate(article.description, length:150) %></p>
+          <%= link_to "View", article_path(article), class: "btn btn-success" %>
+          <%= link_to "Edit", edit_article_path(article), class: "btn btn-primary" %>
+          <%= link_to "Delete", article_path(article), data: {turbo_method: :delete}, class: "btn btn-danger" %>
+        </div>
+        <div class="card-footer text-muted">
+          created at <%= article.created_at.year %>-<%= article.created_at.month %>-<%= article.created_at.day %> and updated at <%= article.updated_at.year %>-<%= article.updated_at.month %>-<%= article.updated_at.day %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>
+
+
+
+

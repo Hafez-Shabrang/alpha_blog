@@ -1,0 +1,35 @@
+<%= form_with(scope: :session, url: signin_path) do |form| %>
+
+  <% if flash[:warning] %>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <ul>
+        <li><%= flash[:warning] %></li>
+      </ul>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <%end%>
+
+  <% if flash[:error] %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <ul>
+          <li><%= flash[:error] %></li>
+        </ul>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <%end%>
+
+  <div class="mb-3">
+    <%= form.label :email, class: "form-label" %>
+    <%= form.email_field :email, class: "form-control", id: "exampleFormControlTextarea1", placeholder: "Enter your email" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :password, class: "form-label" %>
+    <%= form.password_field :password, class: "form-control", id: "exampleFormControlTextarea1", placeholder: "Enter your password" %>
+  </div>
+
+  <div class="text-center">
+    <%= form.submit "Signin", class: "btn btn-outline-primary" %>
+  </div>
+
+<%end%>

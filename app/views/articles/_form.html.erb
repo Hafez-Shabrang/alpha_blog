@@ -1,0 +1,19 @@
+<%= form_with(model: @article) do |form| %>
+
+  <%= render "notifications/errors", obj: @article %>
+
+  <div class="mb-3">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: "form-control", id: "exampleFormControlInput1", placeholder: "Enter article's title" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_area :description, class: "form-control", id: "exampleFormControlTextarea1", rows: "3", placeholder: "Enter article's description" %>
+  </div>
+
+  <div class="text-center">
+    <%= form.submit(@article.new_record? ? "Create" : "Edit", class: "btn btn-outline-primary") %>
+  </div>
+
+<%end%>

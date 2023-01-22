@@ -1,0 +1,28 @@
+<%= render "notifications/success" %>
+
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <h1 class="text-center my-4">List of users</h1>
+    <% @users.each do |user| %>
+      <div class="card text-center my-3">
+        <div class="card-header">
+          <%= link_to user.username, user_path(user) %>
+        </div>
+        <div class="card-body">
+          <%= image_tag user.gravatar_url %>
+          <h5 class="card-title"><%= link_to user.username, user_path(user) %></h5>
+          <p class="card-text"><%= user.email %></p>
+          <%= link_to "View", user_path(user), class: "btn btn-success" %>
+          <%= link_to "Edit", edit_user_path(user), class: "btn btn-primary" %>
+          <%= link_to "Delete", user_path(user), data: {turbo_method: :delete}, class: "btn btn-danger" %>
+        </div>
+        <div class="card-footer text-muted">
+          created at <%= user.created_at.year %>-<%= user.created_at.month %>-<%= user.created_at.day %> and updated at <%= user.updated_at.year %>-<%= user.updated_at.month %>-<%= user.updated_at.day %>
+        </div>
+      </div>
+    <% end %>
+
+    <%= paginate @users %>
+
+  </div>
+</div>

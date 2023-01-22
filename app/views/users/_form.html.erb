@@ -1,0 +1,24 @@
+<%= form_with(model: @user) do |form| %>
+
+  <%= render "notifications/errors", obj: @user %>
+
+  <div class="mb-3">
+    <%= form.label :username, class: "form-label" %>
+    <%= form.text_field :username, class: "form-control", id: "exampleFormControlInput1", placeholder: "Enter your username" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :email, class: "form-label" %>
+    <%= form.email_field :email, class: "form-control", id: "exampleFormControlTextarea1", placeholder: "Enter your email" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :password, class: "form-label" %>
+    <%= form.password_field :password, class: "form-control", id: "exampleFormControlTextarea1", placeholder: "Enter your password" %>
+  </div>
+
+  <div class="text-center">
+    <%= form.submit(@user.new_record? ? "Signup" : "Edit", class: "btn btn-outline-primary") %>
+  </div>
+
+<%end%>

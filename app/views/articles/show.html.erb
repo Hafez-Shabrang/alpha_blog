@@ -1,0 +1,24 @@
+<%= render "notifications/success" %>
+
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <h1 class="text-center my-4"><%= @article.title %></h1>
+    <div class="card text-center">
+      <div class="card-header">
+        <%= link_to @article.user.username, user_path(@article.user) %>
+      </div>
+      <div class="card-body">
+        <p class="card-text text-start"><%= @article.description %></p>
+        <%= link_to "Edit", edit_article_path(@article), class: "btn btn-primary" %>
+        <%= link_to "Delete", article_path(@article), data: {turbo_method: :delete}, class: "btn btn-danger" %>
+      </div>
+      <div class="card-footer text-muted">
+        created at <%= @article.created_at.year %>-<%= @article.created_at.month %>-<%= @article.created_at.day %> and updated at <%= @article.updated_at.year %>-<%= @article.updated_at.month %>-<%= @article.updated_at.day %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
