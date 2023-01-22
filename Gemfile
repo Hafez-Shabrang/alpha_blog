@@ -7,6 +7,11 @@ gem "bootstrap"
 gem "sassc-rails"
 gem "popper_js"
 gem "kaminari"
+gem "bcrypt"
+gem "byebug"
+gem "gravtastic"
+
+
 
 ruby "3.1.2"
 
