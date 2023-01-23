@@ -5,10 +5,21 @@
     <h1 class="text-center my-4"><%= @article.title %></h1>
     <div class="card text-center">
       <div class="card-header">
+        <%= image_tag @article.user.gravatar_url %>
+        <br>
         <%= link_to @article.user.username, user_path(@article.user) %>
+        <% if @article.categories.any? %>
+          <div class="my-2">
+            Categories:
+            <% @article.categories.each do |category| %>
+              <span class="badge rounded-pill text-bg-info"><%= category.name %></span>
+            <%end%>
+          </div>
+        <%end%>
       </div>
       <div class="card-body">
         <p class="card-text text-start"><%= @article.description %></p>
+
         <%= link_to "Edit", edit_article_path(@article), class: "btn btn-primary" %>
         <%= link_to "Delete", article_path(@article), data: {turbo_method: :delete}, class: "btn btn-danger" %>
       </div>

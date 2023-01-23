@@ -10,7 +10,7 @@ gem "kaminari"
 gem "bcrypt"
 gem "byebug"
 gem "gravtastic"
-
+gem "hirb"
 
 
 ruby "3.1.2"

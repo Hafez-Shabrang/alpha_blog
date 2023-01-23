@@ -11,3 +11,13 @@
 .navbar-brand:hover {
   color: white;
 }
+
+.slider {
+  height: 800px;
+  width: 100%;
+  //background-color: red;
+  background-image: url("slider1.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}

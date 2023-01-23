@@ -4,8 +4,6 @@ Rails.application.routes.draw do
 
   root "pages#home"
 
-  get "about-us", to: "pages#about"
-
   resources :articles
 
   resources :users, except: [:new]
@@ -18,6 +16,6 @@ Rails.application.routes.draw do
 
   get "logout", to: "sessions#destroy"
 
-  resources :categories, only: [:index, :show, :new, :create]
+  resources :categories
 
 end
