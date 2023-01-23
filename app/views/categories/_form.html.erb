@@ -1,0 +1,15 @@
+<%= form_with(model: @category) do |form| %>
+
+  <%= render "notifications/errors", obj: @category %>
+
+  <div class="mb-3">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control", id: "exampleFormControlInput1", placeholder: "Enter category name" %>
+  </div>
+
+  <div class="text-center">
+    <%#= form.submit(@category.new_record? ? "Create" : "Edit", class: "btn btn-outline-primary") %>
+    <%= form.submit "Create", class: "btn btn-outline-primary" %>
+  </div>
+
+<%end%>

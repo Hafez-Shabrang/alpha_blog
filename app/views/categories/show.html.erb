@@ -1,0 +1,21 @@
+<%= render "notifications/success" %>
+
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <h1 class="text-center my-4"><%= @category.name %></h1>
+    <div class="card text-center">
+      <div class="card-body">
+        <p class="card-text text-start"><%= @category.name %></p>
+        <%= link_to "Edit", edit_category_path(@category), class: "btn btn-primary" %>
+        <%= link_to "Delete", category_path(@category), data: {turbo_method: :delete}, class: "btn btn-danger" %>
+      </div>
+      <div class="card-footer text-muted">
+        created at <%= @category.created_at.year %>-<%= @category.created_at.month %>-<%= @category.created_at.day %> and updated at <%= @category.updated_at.year %>-<%= @category.updated_at.month %>-<%= @category.updated_at.day %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
